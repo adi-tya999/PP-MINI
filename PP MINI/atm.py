@@ -37,7 +37,7 @@ class SampleApp(tk.Tk):
 class StartPage(tk.Frame):
 
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,bg='#3d3d5c')
+        tk.Frame.__init__(self, parent,bg='blue')#changed
         self.controller = controller
 
         self.controller.title('SOMAIYA')
@@ -48,17 +48,23 @@ class StartPage(tk.Frame):
                                                      text='SOMAIYA ATM',
                                                      font=('orbitron',45,'bold'),
                                                      foreground='#ffffff',
-                                                     background='#3d3d5c')
+                                                     fg = "blue",
+                                                     borderwidth= 3 ,
+                                                     relief= "raised",
+                                                     background='deep sky blue')#changed
         heading_label.pack(pady=25)
 
-        space_label = tk.Label(self,height=4,bg='#3d3d5c')
+        space_label = tk.Label(self,height=4,bg='blue')#changed
         space_label.pack()
 
         password_label = tk.Label(self,
                                                       text='Enter your password',
-                                                      font=('orbitron',13),
-                                                      bg='#3d3d5c',
-                                                      fg='white')
+                                                      font=('orbitron',17),
+                                                      bg='deep sky blue',#changed
+                                                      fg='blue',
+                                                      borderwidth = 3,
+                                                      relief="raised")
+                                                    
         password_label.pack(pady=10)
 
         my_password = tk.StringVar()
@@ -95,7 +101,7 @@ class StartPage(tk.Frame):
                                                                         text='',
                                                                         font=('orbitron',13),
                                                                         fg='white',
-                                                                        bg='#33334d',
+                                                                        bg='deep sky blue',
                                                                         anchor='n')
         incorrect_password_label.pack(fill='both',expand=True)
 
@@ -132,32 +138,38 @@ class StartPage(tk.Frame):
 class MenuPage(tk.Frame):
 
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,bg='#3d3d5c')
+        tk.Frame.__init__(self, parent,bg='blue')#changed
         self.controller = controller
    
         heading_label = tk.Label(self,
                                                      text='SOMAIYA ATM',
                                                      font=('orbitron',45,'bold'),
                                                      foreground='#ffffff',
-                                                     background='#3d3d5c')
+                                                     background='deep sky blue')
         heading_label.pack(pady=25)
 
         main_menu_label = tk.Label(self,
                                                            text='Main Menu',
-                                                           font=('orbitron',13),
+                                                           font=('orbitron',17),
                                                            fg='white',
-                                                           bg='#3d3d5c')
+                                                           bg='deep sky blue',
+                                                           borderwidth=3,
+                                                           relief='raised'
+                                                           )
+                                                           
         main_menu_label.pack()
 
         selection_label = tk.Label(self,
                                                            text='Please make a selection',
                                                            font=('orbitron',13),
                                                            fg='white',
-                                                           bg='#3d3d5c',
+                                                           bg='deep sky blue',
+                                                           borderwidth=3,
+                                                           relief='raised',
                                                            anchor='w')
         selection_label.pack(fill='x')
 
-        button_frame = tk.Frame(self,bg='#33334d')
+        button_frame = tk.Frame(self,bg='blue')
         button_frame.pack(fill='both',expand=True)
 
         def withdraw():
@@ -169,6 +181,7 @@ class MenuPage(tk.Frame):
                                                             relief='raised',
                                                             borderwidth=3,
                                                             width=50,
+                                                            
                                                             height=5)
         withdraw_button.grid(row=0,column=0,pady=5)
 
@@ -241,7 +254,7 @@ class MenuPage(tk.Frame):
 class WithdrawPage(tk.Frame):
     
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,bg='#3d3d5c')
+        tk.Frame.__init__(self, parent,bg='BLUE')
         self.controller = controller
 
 
@@ -249,17 +262,20 @@ class WithdrawPage(tk.Frame):
                                                      text='SOMAIYA ATM',
                                                      font=('orbitron',45,'bold'),
                                                      foreground='#ffffff',
-                                                     background='#3d3d5c')
+                                                     borderwidth=3,
+                                                     relief='raised',
+                                                     
+                                                     background='deep sky blue')
         heading_label.pack(pady=25)
 
         choose_amount_label = tk.Label(self,
                                                            text='Choose the amount you want to withdraw',
                                                            font=('orbitron',13),
                                                            fg='white',
-                                                           bg='#3d3d5c')
+                                                           bg='deep sky blue')
         choose_amount_label.pack()
 
-        button_frame = tk.Frame(self,bg='#33334d')
+        button_frame = tk.Frame(self,bg='blue')
         button_frame.pack(fill='both',expand=True)
 
         def withdraw(amount):
@@ -379,23 +395,27 @@ class WithdrawPage(tk.Frame):
 class DepositPage(tk.Frame):
     
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,bg='#3d3d5c')
+        tk.Frame.__init__(self, parent,bg='blue')
         self.controller = controller
 
         heading_label = tk.Label(self,
                                                      text='SOMAIYA ATM',
                                                      font=('orbitron',45,'bold'),
                                                      foreground='#ffffff',
-                                                     background='#3d3d5c')
+                                                     borderwidth=3,
+                                                     relief='raised',
+                                                     background='deep sky blue')
         heading_label.pack(pady=25)
 
-        space_label = tk.Label(self,height=4,bg='#3d3d5c')
+        space_label = tk.Label(self,height=4,bg='blue')
         space_label.pack()
 
         enter_amount_label = tk.Label(self,
                                                       text='Enter amount',
                                                       font=('orbitron',13),
-                                                      bg='#3d3d5c',
+                                                      bg='deep sky blue',
+                                                      borderwidth=3,
+                                                      relief='raised',
                                                       fg='white')
         enter_amount_label.pack(pady=10)
 
@@ -422,7 +442,7 @@ class DepositPage(tk.Frame):
                                                      height=3)
         enter_button.pack(pady=10)
 
-        two_tone_label = tk.Label(self,bg='#33334d')
+        two_tone_label = tk.Label(self,bg='blue')
         two_tone_label.pack(fill='both',expand=True)
 
         bottom_frame = tk.Frame(self,relief='raised',borderwidth=3)
@@ -457,7 +477,7 @@ class DepositPage(tk.Frame):
 class BalancePage(tk.Frame):
     
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,bg='#3d3d5c')
+        tk.Frame.__init__(self, parent,bg='blue')
         self.controller = controller
 
         
@@ -465,7 +485,7 @@ class BalancePage(tk.Frame):
                                                      text='SOMAIYA ATM',
                                                      font=('orbitron',45,'bold'),
                                                      foreground='#ffffff',
-                                                     background='#3d3d5c')
+                                                     background='deep sky blue')
         heading_label.pack(pady=25)
 
         global current_balance
@@ -474,11 +494,11 @@ class BalancePage(tk.Frame):
                                                   textvariable=controller.shared_data['Balance'],
                                                   font=('orbitron',13),
                                                   fg='white',
-                                                  bg='#3d3d5c',
+                                                  bg='deep sky blue',
                                                   anchor='w')
         balance_label.pack(fill='x')
 
-        button_frame = tk.Frame(self,bg='#33334d')
+        button_frame = tk.Frame(self,bg='blue')
         button_frame.pack(fill='both',expand=True)
 
         def menu():
