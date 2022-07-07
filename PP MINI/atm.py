@@ -5,8 +5,9 @@ import time
 current_balance = 100000
 
 
-data = [ ("Test1", "123"),
-         ("Test2", "000")
+data = [ ("Aditya","16010121028"),
+         ("Neil","16010121029"),
+         ("Pratham","16010121047")
         ]
 
 
