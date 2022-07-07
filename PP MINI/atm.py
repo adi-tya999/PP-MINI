@@ -1,7 +1,16 @@
 import tkinter as tk
 import time
 
-current_balance = 1000
+
+current_balance = 100000
+
+
+data = [ ("Test1", "123"),
+         ("Test2", "000")
+        ]
+
+
+
 
 class SampleApp(tk.Tk):
 
@@ -21,9 +30,7 @@ class SampleApp(tk.Tk):
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
 
-            # put all of the pages in the same location;
-            # the one on the top of the stacking order
-            # will be the one that is visible.
+            
             frame.grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("StartPage")
@@ -57,6 +64,24 @@ class StartPage(tk.Frame):
         space_label = tk.Label(self,height=4,bg='blue')#changed
         space_label.pack()
 
+        password_label1 = tk.Label(self,
+                                                      text='Enter your username',
+                                                      font=('orbitron',17),
+                                                      bg='deep sky blue',#changed
+                                                      fg='blue',
+                                                      borderwidth = 3,
+                                                      relief="raised")
+                                                    
+        password_label1.pack(pady=10)
+        my_username = tk.StringVar()
+        password_entry_box1 = tk.Entry(self,
+                                                              textvariable=  my_username,
+                                                              font=('orbitron',12),
+                                                              width=22)
+       
+        password_entry_box1.focus_set()
+        password_entry_box1.pack(ipady=7)   
+
         password_label = tk.Label(self,
                                                       text='Enter your password',
                                                       font=('orbitron',17),
@@ -66,6 +91,10 @@ class StartPage(tk.Frame):
                                                       relief="raised")
                                                     
         password_label.pack(pady=10)
+        
+
+
+        
 
         my_password = tk.StringVar()
         password_entry_box = tk.Entry(self,
@@ -74,19 +103,32 @@ class StartPage(tk.Frame):
                                                               width=22)
         password_entry_box.focus_set()
         password_entry_box.pack(ipady=7)
+        
+
+        
 
         def handle_focus_in(_):
             password_entry_box.configure(fg='black',show='*')
             
         password_entry_box.bind('<FocusIn>',handle_focus_in)
+        
 
         def check_password():
-           if my_password.get() == '123':
-               my_password.set('')
-               incorrect_password_label['text']=''
-               controller.show_frame('MenuPage')
-           else:
-               incorrect_password_label['text']='Incorrect Password'
+            
+    
+            
+            if (my_username.get() , my_password.get(),) in data:
+                
+
+
+                my_password.set('')
+                incorrect_password_label['text']=''
+                controller.show_frame('MenuPage')
+            else:
+                print(current_balance)
+                incorrect_password_label['text']='Incorrect Password'
+        
+            
                 
         enter_button = tk.Button(self,
                                                      text='Enter',
@@ -280,13 +322,15 @@ class WithdrawPage(tk.Frame):
 
         def withdraw(amount):
             global current_balance
+            
+            
             current_balance -= amount
             controller.shared_data['Balance'].set(current_balance)
             controller.show_frame('MenuPage')
             
         twenty_button = tk.Button(button_frame,
-                                                       text='20',
-                                                       command=lambda:withdraw(20),
+                                                       text='100',
+                                                       command=lambda:withdraw(100),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
@@ -294,8 +338,8 @@ class WithdrawPage(tk.Frame):
         twenty_button.grid(row=0,column=0,pady=5)
 
         forty_button = tk.Button(button_frame,
-                                                       text='40',
-                                                       command=lambda:withdraw(40),
+                                                       text='200',
+                                                       command=lambda:withdraw(200),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
@@ -303,8 +347,8 @@ class WithdrawPage(tk.Frame):
         forty_button.grid(row=1,column=0,pady=5)
 
         sixty_button = tk.Button(button_frame,
-                                                       text='60',
-                                                       command=lambda:withdraw(60),
+                                                       text='500',
+                                                       command=lambda:withdraw(500),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
@@ -312,8 +356,8 @@ class WithdrawPage(tk.Frame):
         sixty_button.grid(row=2,column=0,pady=5)
 
         eighty_button = tk.Button(button_frame,
-                                                       text='80',
-                                                       command=lambda:withdraw(80),
+                                                       text='1000',
+                                                       command=lambda:withdraw(1000),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
@@ -321,8 +365,8 @@ class WithdrawPage(tk.Frame):
         eighty_button.grid(row=3,column=0,pady=5)
 
         one_hundred_button = tk.Button(button_frame,
-                                                       text='100',
-                                                       command=lambda:withdraw(100),
+                                                       text='2000',
+                                                       command=lambda:withdraw(2000),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
@@ -330,17 +374,16 @@ class WithdrawPage(tk.Frame):
         one_hundred_button.grid(row=0,column=1,pady=5,padx=555)
 
         two_hundred_button = tk.Button(button_frame,
-                                                       text='200',
-                                                       command=lambda:withdraw(200),
+                                                       text='5000',
+                                                       command=lambda:withdraw(5000),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
                                                        height=5)
         two_hundred_button.grid(row=1,column=1,pady=5)
-
         three_hundred_button = tk.Button(button_frame,
-                                                       text='300',
-                                                       command=lambda:withdraw(300),
+                                                       text='10000',
+                                                       command=lambda:withdraw(10000),
                                                        relief='raised',
                                                        borderwidth=3,
                                                        width=50,
